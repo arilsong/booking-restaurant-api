@@ -27,7 +27,7 @@ public class Restaurant {
     @OneToMany(mappedBy = "restaurant")
     private List<Employee> employees = new ArrayList<>();
     @OneToMany(mappedBy = "restaurant")
-    private List<Assessment> assessments = new ArrayList<>();
+    private List<Review> reviews = new ArrayList<>();
     @OneToOne(mappedBy = "restaurant")
     private Availability availabilities;
 }
