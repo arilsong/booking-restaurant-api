@@ -5,15 +5,13 @@ import jakarta.persistence.Table;
 import lombok.Data;
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
 import java.util.UUID;
 
 @Entity
+@Inheritance(strategy = InheritanceType.JOINED)
 @Table(name = "users")
 @Data
-public class User {
+public abstract class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
@@ -21,11 +19,8 @@ public class User {
 
     private String name;
     private String email;
-    private String phone;
     private String password;
+    private String phone;
+    private String role;
     private LocalDateTime created_at = LocalDateTime.now();
-
-    @OneToMany(mappedBy = "user")
-    private List<Booking> bookings = new ArrayList<>();
-
 }
