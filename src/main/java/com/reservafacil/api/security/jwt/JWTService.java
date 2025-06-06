@@ -18,6 +18,7 @@ import java.security.Key;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.UUID;
 import java.util.function.Function;
 
 @Service
@@ -63,8 +64,13 @@ public class JWTService {
         return extractClaim(theToken, Claims::getSubject);
     }
 
-    public Long extractUserIdFromToken(String theToken){
-        return extractClaim(theToken, claims -> claims.get("userId", Long.class));
+    public UUID extractUserIdFromToken(String theToken){
+        try {
+            String userIdStr = extractClaim(theToken, claims -> claims.get("userId", String.class));
+            return UUID.fromString(userIdStr);
+        } catch (IllegalArgumentException e) {
+            throw new RuntimeException("Invalid UUID format in token", e);
+        }
     }
 
     public Date extractExpirationTimeFromToken(String theToken){
