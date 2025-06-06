@@ -20,8 +20,8 @@ public class Booking {
     Restaurant restaurant;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_id")
-    User user;
+    @JoinColumn(name = "client_id")
+    Client client;
 
     private Date date;
     private Time time;
