@@ -25,9 +25,9 @@ public class Booking {
 
     private Date date;
     private Time time;
-    private String number_of_people;
-    private String special_occasion;
-    private String special_requests;
-    private int confirmation_code;
+    private String numberOfPeople;
+    private String specialOccasion;
+    private String specialRequests;
+    private int confirmationCode;
     private LocalDateTime created_at = LocalDateTime.now();
 }
