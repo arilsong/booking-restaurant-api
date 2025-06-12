@@ -17,7 +17,10 @@ public class Review {
     @JoinColumn(name = "restaurant_id")
     Restaurant restaurant;
 
-    private UUID user_id;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "client_id")
+    Client client;
+
     private int classification;
     private String comment;
     private String restaurant_response;

@@ -20,4 +20,6 @@ public class Client extends User{
     @OneToMany(mappedBy = "client")
     private List<Booking> bookings = new ArrayList<>();
 
+    @OneToMany(mappedBy = "client")
+    private List<Review> reviews = new ArrayList<>();
 }

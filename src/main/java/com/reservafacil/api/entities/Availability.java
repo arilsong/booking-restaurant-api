@@ -3,6 +3,7 @@ package com.reservafacil.api.entities;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.util.List;
 import java.util.UUID;
 
 @Entity
@@ -16,7 +17,7 @@ public class Availability {
     @JoinColumn(name = "restaurant_id")
     Restaurant restaurant;
 
-    private String day_of_the_week;
-    private String start_time;
-    private String end_time;
+    private List<String> daysOfWeek;
+    private String startTime;
+    private String endTime;
 }
